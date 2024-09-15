@@ -1,28 +1,22 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
-std::string *cardstack_clean[52];
+std::string cardstack_clean[52];
 std::string *cardstack_play[52];
 std::string *playerhands[11];
 
-wchar_t cardgroup[4] = {L'♣', L'♦', L'♥', L'♠'};
 int cardface[13] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15};
+std::string cardgroup[4] = {
+    "\u2663",  // ♣
+    "\u2666",  // ♦
+    "\u2665",  // ♥
+    "\u2660"}; // ♠
 
 // create the stacks
-std::string *createStack()
+void createStack()
 {
-    for (int i = 0; i < sizeof(cardstack_clean); i++)
+    for (int i = 0; i < std::end(cardstack_clean) - std::begin(cardstack_clean); i++)
     {
-        for (int group = 0; group < sizeof(cardgroup); group++)
-        {
-            for (int face = 0; face < sizeof(cardface); face++)
-            {
-                std::stringstream res;
-                res << cardgroup[group] << cardface[face];
-                cardstack_clean[i] = res.str();
-            }
-        }
     }
 }
 
@@ -31,6 +25,17 @@ std::string *createStack()
 // main function
 int main()
 {
-    std::cout << *cardface << '\n';
+    std::cout << "Ukuran cardstack_clean " << sizeof(cardstack_clean) / sizeof(cardstack_clean[0]) << std::endl;
+    std::cout << "Ukuran cardface " << std::end(cardface) - std::begin(cardface) << std::endl;
+
+    for (int i = 0; i < std::end(cardstack_clean) - std::begin(cardstack_clean); i++) // Perulangan sampe 52x
+    {
+
+        if (i < std::end(cardface) - std::begin(cardface)) // Cuma lakukan kalo i nda lewat panjang cardface
+        {
+            std::cout << cardface[i] << std::endl;
+        }
+    }
+
     return 0;
 }

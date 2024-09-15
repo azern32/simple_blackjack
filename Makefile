@@ -7,7 +7,7 @@ CC = clang++-18
 #COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
 # COMPILER_FLAGS = -w
-COMPILER_FLAGS = 
+COMPILER_FLAGS = -std=c++20
 
 #LINKER_FLAGS specifies the libraries we're linking against
 # LINKER_FLAGS = -lSDL2
