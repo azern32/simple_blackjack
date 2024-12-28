@@ -16,5 +16,6 @@ COMPILER_FLAGS = -std=c++20
 OBJ_NAME = ./main
 
 #This is the target that compiles our executable
+# clang++-18 *.cpp -std=c+=20 -o ./main	
 main : $(OBJS)
 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
